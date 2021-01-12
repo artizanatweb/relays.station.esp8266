@@ -38,8 +38,10 @@ void WiFiTask::loop() {
         return;
     }
 
-    Serial.println("WiFi disconnected!");
-    globalStore->wifi = false;
+    if (globalStore->wifi) {
+        globalStore->wifi = false;
+        Serial.println("WiFi disconnected!");
+    }
 
     // auto reconnect is on
 }
