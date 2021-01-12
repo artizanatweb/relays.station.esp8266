@@ -1,0 +1,22 @@
+{
+  "board": {
+    "id": "__this_board_id__",
+    "sleepMode": false
+  },
+  "wifi": {
+    "ssid": "__your_wifi_ssid__",
+    "passwd": "__your_wifi_password__"
+  },
+  "relayModules": [
+    {
+      "led": "__led_pin_number__",
+      "button": "__button_pin_number__",
+      "relay": "__relay_pin_number__"
+    },
+    {
+      "led": "__led_pin_number__",
+      "button": "__button_pin_number__",
+      "relay": "__relay_pin_number__"
+    }
+  ]
+}
