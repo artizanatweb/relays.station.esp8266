@@ -32,34 +32,50 @@ void ConfigStore::configure(JsonObject jsonConfig) {
 
     if (!jsonConfig.containsKey("wifi")) {
         Serial.println("WIFI settings not found!");
+        return;
     }
 
     if (!jsonConfig.containsKey("relayModules")) {
         Serial.println("RELAYS settings not found!");
+        return;
     }
 
     JsonObject board = jsonConfig["board"];
-    if (board.containsKey("id")) {
-        stationID = board["id"].as<String>();
+    if (!board.containsKey("id")) {
+        Serial.println("StationID board setting not found!");
+        return;
     }
+    stationID = board["id"].as<String>();
 
-    if (board.containsKey("sleepMode")) {
-        sleepMode = board["sleepMode"].as<bool>();
+    if (!board.containsKey("sleepMode")) {
+        Serial.println("sleepMode setting for board not found!");
+        return;
     }
+    sleepMode = board["sleepMode"].as<bool>();
 
 
     JsonObject wifi = jsonConfig["wifi"];
-    if (wifi.containsKey("ssid")) {
-        wifiSSID = wifi["ssid"].as<String>();
+    if (!wifi.containsKey("ssid")) {
+        Serial.println("SSID setting for WiFi not found!");
+        return;
     }
+    wifiSSID = wifi["ssid"].as<String>();
 
-    if (wifi.containsKey("passwd")) {
-        wifiPASSWD = wifi["passwd"].as<String>();
+    if (!wifi.containsKey("passwd")) {
+        Serial.println("PASSWD setting for WiFi not found!");
+        return;
     }
+    wifiPASSWD = wifi["passwd"].as<String>();
 
 
     JsonArray relayModules = jsonConfig["relayModules"];
     relaysCount = relayModules.size();
+
+    if (0 >= relaysCount) {
+        Serial.println("Board has no setup for relays!");
+        return;
+    }
+
     for (int i = 0; i < relaysCount; i++) {
         JsonObject relayPins = relayModules[i].as<JsonObject>();
 
@@ -73,6 +89,8 @@ void ConfigStore::configure(JsonObject jsonConfig) {
 
 
     configured = true;
+    GlobalStore *globalStore;
+    globalStore->configured = true;
 }
 
 void ConfigStore::setPinsObject() {

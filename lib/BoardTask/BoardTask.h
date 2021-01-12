@@ -6,8 +6,8 @@
 #define BOARDTASK_H
 
 #include <Scheduler.h>
-#include "ConfigStore.h"
 #include "Board.h"
+#include "GlobalStore.h"
 
 class BoardTask : public Task {
 public:
@@ -15,7 +15,7 @@ public:
     void loop();
 
 private:
-    ConfigStore* configStore;
+    GlobalStore* globalStore;
     Board* board;
 };
 

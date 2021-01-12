@@ -9,7 +9,7 @@
 #include <ArduinoJson.h>
 #include "RelayModulePins.h"
 #include "Array.h"
-#include "Global.h"
+#include "GlobalStore.h"
 
 class ConfigStore {
 private:

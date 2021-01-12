@@ -10,7 +10,7 @@
 #include <Scheduler.h>
 #include <LittleFS.h>
 #include "ConfigStore.h"
-#include "Global.h"
+#include "GlobalStore.h"
 
 class ConfigTask: public Task {
 public:

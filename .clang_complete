@@ -8,6 +8,7 @@
 -I/home/daniel/CLionProjects/relays.station.esp8266/lib/PushCounters
 -I/home/daniel/CLionProjects/relays.station.esp8266/lib/ConfigStore
 -I/home/daniel/CLionProjects/relays.station.esp8266/lib/RelayModulePins
+-I/home/daniel/CLionProjects/relays.station.esp8266/lib/GlobalStore
 -I/home/daniel/CLionProjects/relays.station.esp8266/.pio/libdeps/esp12e/Vector/src
 -I/home/daniel/CLionProjects/relays.station.esp8266/.pio/libdeps/esp12e/Array/src
 -I/home/daniel/CLionProjects/relays.station.esp8266/.pio/libdeps/esp12e/ESP8266Scheduler/src

@@ -6,9 +6,9 @@
 #include "PushCounters.h"
 
 void BoardTask::setup() {
-    configStore = ConfigStore::GetInstance();
-    while (!configStore->configured) {
-        Serial.println("Not yet configured!");
+    globalStore = GlobalStore::getInstance();
+    while (!globalStore->configured) {
+        Serial.println("[BOARD TASK] Not yet configured!");
         delay(1000);
     }
 
