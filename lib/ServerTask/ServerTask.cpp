@@ -25,6 +25,8 @@ void ServerTask::setup() {
 
     server->on("/connection/request", HTTP_POST, connectionRequestHandler);
     server->begin();
+
+    globalStore->serverReady = true;
 }
 
 void ServerTask::loop() {

@@ -4,11 +4,13 @@
 #include "BoardTask.h"
 #include "WiFiTask.h"
 #include "ServerTask.h"
+#include "SocketTask.h"
 
 ConfigTask configTask;
 BoardTask boardTask;
 WiFiTask wiFiTask;
 ServerTask serverTask;
+SocketTask socketTask;
 
 void setup() {
     Serial.begin(115200);
@@ -19,6 +21,7 @@ void setup() {
     Scheduler.start(&boardTask);
     Scheduler.start(&wiFiTask);
     Scheduler.start(&serverTask);
+    Scheduler.start(&socketTask);
 
     Scheduler.begin();
 }
