@@ -23,9 +23,12 @@ public:
     static bool configured;
     int relaysCount;
     String stationID;
+    String aesKey;
     bool sleepMode;
     String wifiSSID;
     String wifiPASSWD;
+    String gwIp;
+    String gwMac;
     StaticJsonDocument<1024> pinsObject;
     void configure(JsonObject jsonConfig);
     uint8_t getUsablePin(String pinStr);

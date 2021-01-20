@@ -1,5 +1,7 @@
 -I/home/daniel/CLionProjects/relays.station.esp8266/include
 -I/home/daniel/CLionProjects/relays.station.esp8266/src
+-I/home/daniel/CLionProjects/relays.station.esp8266/lib/WiFiTask
+-I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src
 -I/home/daniel/CLionProjects/relays.station.esp8266/lib/ConfigTask
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/LittleFS/src
 -I/home/daniel/CLionProjects/relays.station.esp8266/lib/BoardTask
@@ -18,6 +20,9 @@
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/cores/esp8266
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/variants/nodemcu
+-I/home/daniel/CLionProjects/relays.station.esp8266/lib/CryptoWrapper
+-I/home/daniel/CLionProjects/relays.station.esp8266/lib/PracticalCrypto
+-I/home/daniel/CLionProjects/relays.station.esp8266/lib/ServerTask
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM
@@ -29,7 +34,6 @@
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src
--I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src
 -I/home/daniel/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src

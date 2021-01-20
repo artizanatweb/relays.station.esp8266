@@ -1,7 +1,8 @@
 {
   "board": {
     "id": "__this_board_id__",
-    "sleepMode": false
+    "sleepMode": false,
+    "aesKey": "__64_characters_string__"
   },
   "wifi": {
     "ssid": "__your_wifi_ssid__",
@@ -18,5 +19,9 @@
       "button": "__button_pin_number__",
       "relay": "__relay_pin_number__"
     }
-  ]
+  ],
+  "iot": {
+    "gwIp": "__GW_IP_Address__",
+    "gwMac": "__GW_MAC_Address__"
+  }
 }

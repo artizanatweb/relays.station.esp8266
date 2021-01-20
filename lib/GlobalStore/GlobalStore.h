@@ -5,6 +5,8 @@
 #ifndef GLOBALSTORE_H
 #define GLOBALSTORE_H
 
+#include <Arduino.h>
+
 #define MAX_RELAYS 4
 #define MAX_CONFIG_SIZE 1024
 
@@ -19,6 +21,8 @@ public:
     static GlobalStore *getInstance();
     bool configured;
     bool wifi;
+    int connectionRequest;
+    String session;
 };
 
 #endif //GLOBALSTORE_H

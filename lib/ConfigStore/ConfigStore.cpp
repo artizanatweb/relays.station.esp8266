@@ -22,6 +22,7 @@ void ConfigStore::configure(JsonObject jsonConfig) {
     if (configured) {
         return;
     }
+    Serial.println("Started configuration");
 
     setPinsObject();
 
@@ -40,6 +41,11 @@ void ConfigStore::configure(JsonObject jsonConfig) {
         return;
     }
 
+    if (!jsonConfig.containsKey("iot")) {
+        Serial.println("IoT settings not found!");
+        return;
+    }
+
     JsonObject board = jsonConfig["board"];
     if (!board.containsKey("id")) {
         Serial.println("StationID board setting not found!");
@@ -53,6 +59,15 @@ void ConfigStore::configure(JsonObject jsonConfig) {
     }
     sleepMode = board["sleepMode"].as<bool>();
 
+    if (!board.containsKey("aesKey")) {
+        Serial.println("AES KEY setting for board not found!");
+        return;
+    }
+    aesKey = board["aesKey"].as<String>();
+    if (64 != aesKey.length()) {
+        Serial.println("AES KEY must have 64 characters!");
+        return;
+    }
 
     JsonObject wifi = jsonConfig["wifi"];
     if (!wifi.containsKey("ssid")) {
@@ -87,9 +102,23 @@ void ConfigStore::configure(JsonObject jsonConfig) {
         relayModulePins.push_back(relayModule);
     }
 
+    JsonObject iot = jsonConfig["iot"];
+    if (!iot.containsKey("gwIp")) {
+        Serial.println("IoT has no setup for Gateway IP address!");
+        return;
+    }
+    gwIp = iot["gwIp"].as<String>();
+
+    if (!iot.containsKey("gwMac")) {
+        Serial.println("IoT has no setup for Gateway MAC address!");
+        return;
+    }
+    gwMac = iot["gwMac"].as<String>();
+
+    Serial.println("DONE with config: " + gwMac);
 
     configured = true;
-    GlobalStore *globalStore;
+    GlobalStore *globalStore = GlobalStore::getInstance();
     globalStore->configured = true;
 }
 
