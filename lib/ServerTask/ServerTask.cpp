@@ -47,7 +47,7 @@ void ServerTask::connectionRequestHandler() {
 
     String receivedClientIp = client.remoteIP().toString();
     if (!(cryptoWrapper->config->gwIp == receivedClientIp)) {
-        Serial.println("Wrong client IP address!");
+        Serial.println("Wrong GW IP address!");
         client.stop();
         return;
     }

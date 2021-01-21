@@ -7,7 +7,11 @@
 
 #include <Arduino.h>
 #include <Scheduler.h>
+#include <ArduinoWebsockets.h>
 #include "GlobalStore.h"
+#include "ConfigStore.h"
+
+using namespace websockets;
 
 class SocketTask : public Task {
 public:
@@ -16,6 +20,13 @@ public:
 
 private:
     static GlobalStore *globalStore;
+    static ConfigStore *configStore;
+    WebsocketsClient client;
+    String gatewayAddress;
+    void checkRequest();
+    void connectClient();
+    static void onMessageCallback(WebsocketsMessage message);
+    static void onEventCallback(WebsocketsEvent event, String data);
 };
 
 #endif //SOCKETTASK_H

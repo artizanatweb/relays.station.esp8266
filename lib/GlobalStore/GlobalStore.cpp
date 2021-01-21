@@ -4,7 +4,7 @@
 
 #include "GlobalStore.h"
 
-GlobalStore::GlobalStore() : configured(false), wifi(false), connectionRequest(0), serverReady(false) {}
+GlobalStore::GlobalStore() : configured(false), wifi(false), connectionRequest(0), serverReady(false), socketConnected(false) {}
 
 GlobalStore* GlobalStore::instance_ = nullptr;
 

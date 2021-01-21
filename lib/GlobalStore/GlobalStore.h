@@ -21,8 +21,9 @@ public:
     static GlobalStore *getInstance();
     bool configured;
     bool wifi;
-    bool serverReady;
     int connectionRequest;
+    bool serverReady;
+    bool socketConnected;
     String session;
 };
 
